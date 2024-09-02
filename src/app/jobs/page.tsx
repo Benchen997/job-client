@@ -1,14 +1,19 @@
-import JobListWithSubscription from "@/ui/JobListContainer";
 import { Job } from "@/model/Job";
-import { getJobs } from "@/graphql/queries";
 import { Suspense } from "react";
+import { getJobs } from "@/app/actions/actions";
+import JobDisplayTable from "@/ui/JobDisplayTable";
 
 export default async function Page() {
-  const jobs: Job[] = await getJobs();
+  const  data  = await getJobs();
+  // map jobs creatAt from string to Date
+  const jobs = data.map((job: Job) => {
+    job.createdAt = new Date(job.createdAt);
+    return job;
+  });
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-     <JobListWithSubscription initialJobs={jobs} />
+      <JobDisplayTable jobs={jobs} />
     </Suspense>
   );
 }
