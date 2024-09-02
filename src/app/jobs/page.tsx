@@ -1,4 +1,4 @@
-import JobDisplayTable from "@/ui/JobDisplayTable";
+import JobListWithSubscription from "@/ui/JobListContainer";
 import { Job } from "@/model/Job";
 import { getJobs } from "@/graphql/queries";
 import { Suspense } from "react";
@@ -8,7 +8,7 @@ export default async function Page() {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <JobDisplayTable jobs={jobs} />
+     <JobListWithSubscription initialJobs={jobs} />
     </Suspense>
   );
 }

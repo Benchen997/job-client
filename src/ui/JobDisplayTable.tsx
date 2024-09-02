@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import { useEffect } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -13,6 +14,7 @@ import { Job, JobStatus } from "@/model/Job";
 import { getComparator, Order } from "@/utils/sorting";
 import { Checkbox } from "@mui/material";
 import clsx from "clsx";
+
 
 
 export default function JobDisplayTable({jobs}: {jobs: Job[]}) {
