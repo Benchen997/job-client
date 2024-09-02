@@ -14,12 +14,12 @@ import { getComparator, Order } from "@/utils/sorting";
 import { Checkbox } from "@mui/material";
 import clsx from "clsx";
 
-export default function JobDisplayTable({ jobs }: { jobs: Job[] }) {
+
+export default function JobDisplayTable({jobs}: {jobs: Job[]}) {
   const [order, setOrder] = React.useState<Order>("asc");
   const [orderBy, setOrderBy] = React.useState<keyof Job>("name");
   const [selected, setSelected] = React.useState<readonly number[]>([]);
   const [page, setPage] = React.useState(0);
-
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleRequestSort = (
@@ -40,6 +40,13 @@ export default function JobDisplayTable({ jobs }: { jobs: Job[] }) {
     setSelected([]);
   };
 
+  /**
+   * This function is used to handle the click event on a table row. 
+   * It toggles the selected state of the row.
+   * It also prevents the default behavior of the event.
+   * @param event the event that triggered the click, used to prevent default behavior
+   * @param id 
+   */
   const handleClick = (event: React.MouseEvent<unknown>, id: number) => {
     const selectedIndex = selected.indexOf(id);
     let newSelected: readonly number[] = [];
@@ -136,12 +143,12 @@ export default function JobDisplayTable({ jobs }: { jobs: Job[] }) {
                     </TableCell>
                     <TableCell align="left" padding="none">
                       <p
-                        className={`px-2 py-0.5 rounded-lg text-white w-fit font-sans tsxt-sm
+                        className={`px-2 py-0.5 rounded-lg text-black w-fit font-sans tsxt-sm
                         ${clsx({
                           "bg-red-500": row.status === JobStatus.FAILED,
                           "bg-green-500": row.status === JobStatus.COMPLETED,
-                          "bg-yellow-500": row.status === JobStatus.IN_PROGRESS,
-                          "bg-blue-500": row.status === JobStatus.PENDING,
+                          "bg-blue-500": row.status === JobStatus.IN_PROGRESS,
+                          "bg-yellow-500": row.status === JobStatus.PENDING,
                         })}`}
                       >
                         {row.status}
