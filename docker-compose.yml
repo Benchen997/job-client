@@ -1,0 +1,7 @@
+version: "3.8"
+
+services:
+  job-client:
+    build: .
+    ports:
+      - "5200:5200"
