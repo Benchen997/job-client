@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a small project using MUI, Next.js and Websocket to fetch and display data, while it is able to recieve real data update from nest.js backend
 
 ## Getting Started
 
