@@ -1,6 +1,5 @@
 "use client";
 import * as React from "react";
-import { useEffect } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -145,7 +144,7 @@ export default function JobDisplayTable({jobs}: {jobs: Job[]}) {
                     </TableCell>
                     <TableCell align="left" padding="none">
                       <p
-                        className={`px-2 py-0.5 rounded-lg text-black w-fit font-sans tsxt-sm
+                        className={`px-2 py-0.5 rounded-lg text-white w-fit font-sans text-sm
                         ${clsx({
                           "bg-red-500": row.status === JobStatus.FAILED,
                           "bg-green-500": row.status === JobStatus.COMPLETED,
